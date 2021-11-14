@@ -36,3 +36,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # 練習用hook 
 
 一個簡易版購物網站...
+
+打開終端 -> npm install -> npm start 可以開啟
