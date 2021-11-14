@@ -1,0 +1,81 @@
+.shop_cart {
+  position: relative;
+}
+.cart_icon {
+  font-size: 36px;
+}
+.cart_total {
+  position: absolute;
+  top: 8px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart_Data {
+  position: absolute;
+  top: 60px;
+  right: -15px;
+  z-index: 999;
+  min-width: 350px;
+  min-height: 300px;
+  max-height: 400px;
+  background-color: rgb(34, 139, 34);
+  color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+}
+.cart_Data::after {
+  content: "";
+  position: absolute;
+  right: 33px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(34, 139, 34);
+  top: -7px;
+}
+.user_carts_data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.cart_list {
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  max-height: 400px;
+  overflow: hidden;
+}
+.nothing_data {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user_carts_data > img {
+  width: 3rem;
+  height: 3rem;
+}
+.check_cart {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(34, 139, 34);
+  padding: 15px 10px;
+}
+.close_cart {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}

@@ -1,0 +1,75 @@
+.My-Food-carousel {
+  width: 100%;
+  height: calc(100vh - 88px);
+  margin-top: 88px;
+  position: relative;
+  z-index: 776;
+  overflow: hidden;
+}
+.carousel-animate {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.3s all linear;
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.activeSlider {
+  opacity: 1;
+  transform: translateX(0);
+}
+.nextSlider {
+  transform: translateX(100%);
+}
+.lastSlider {
+  transform: translateX(-100%);
+}
+
+.btn-carousel-prev {
+  position: absolute;
+  z-index: 777;
+  top: 50%;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-carousel-next {
+  position: absolute;
+  z-index: 777;
+  top: 50%;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width:800px) {
+  .My-Food-carousel {
+    width: 100%;
+    height: 400px;
+    margin-top: 88px;
+    position: relative;
+    z-index: 776;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,11 @@
+footer {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: #444;
+  color: white;
+}
+.footer-map {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+}

@@ -1,0 +1,91 @@
+.CartData {
+  margin-top: 100px;
+  width: 100%;
+}
+.My-Container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.cart_header {
+  width: 100%;
+}
+.cart_allICheckbox {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+.cart_CheckBtn {
+  width: 10%;
+}
+.cart_product_name {
+  width: 51%;
+}
+.cart_product_singlePrice {
+  width: 13%;
+}
+.cart_product_allAmount {
+  width: 12%;
+}
+.cart_product_allPrice {
+  width: 10%;
+}
+
+.User_final_check_cart {
+  width: 100%;
+  padding: 10px 15px;
+}
+.show_data {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Cart_CheckBtn {
+  padding-right: 15px;
+}
+.cart_product_Img {
+  width: 80px;
+  height: 80px;
+}
+.cart_product_Img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cart_introduction {
+  padding-left: 15px;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cart_a {
+  max-height: 32px;
+  white-space: nowrap;
+}
+.cart_type {
+  padding-left: 30px;
+}
+
+/* -----------------------結帳 */
+.cart_checkout_control{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.User_checkout {
+  width: 100%;
+  padding: 10px 15px;
+}
+.Checkout_All_Checked {
+  display: flex;
+  align-items: center;
+}
+.Checkout_Total_Price{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

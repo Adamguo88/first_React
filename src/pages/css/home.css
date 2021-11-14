@@ -1,0 +1,25 @@
+.homePage {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.homeData {
+  max-width: 1170px;
+  width: 100%;
+  margin: 100px 0;
+  display: flex;
+  align-items: center;
+}
+
+.home-sample {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+  gap: 1.5rem;
+}
+
