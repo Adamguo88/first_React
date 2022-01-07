@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import url from '../../data/carousel'
 import "./carousel.css";
+
 export default function Carousel() {
   const [carousel, setCarousel] = useState([]);
   const [carouselNum, setCarouselNum] = useState(0);
   // 拿到輪播圖數據
   useEffect(() => {
-    const fetchCarousel = async () => {
-      const url = "http://localhost:5000/carousel";
-      try {
-        const response = await fetch(url);
-        const carouselData = await response.json();
-        setCarousel(carouselData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchCarousel();
+    // const fetchCarousel = async () => {
+    //   const url = "http://localhost:5000/carousel";
+    //   try {
+    //     const response = await fetch(url);
+    //     const carouselData = await response.json();
+    //     setCarousel(carouselData);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    // fetchCarousel();
+    setCarousel(url)
+    
   }, []);
 
   // 點擊上一張、下一張切換

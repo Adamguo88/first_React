@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../../context";
 import { FaPlus, FaMinus } from "react-icons/fa";
+
 export default function MenuData() {
   const { afterList,add,unCrease,addToCart } = useGlobalContext();
   return (

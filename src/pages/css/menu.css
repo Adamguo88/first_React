@@ -45,6 +45,14 @@
   justify-content: center;
 }
 
+@media screen and (max-width:992px){
+  .restaurant {
+    width: 50%;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+}
+
 @media screen and (max-width: 1170px) {
   .Menu-box {
     max-width: 90%;
