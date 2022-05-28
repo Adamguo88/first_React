@@ -32,6 +32,7 @@ export default function reducer(state, action) {
         return { ...state, afterList: newList, list: newList };
       }
       // 如果點其他菜單的時候，再把list的資料重新跑一遍，獲得新數據，這樣就不會有數據丟失的狀況
+
       const newMenu = state.list.filter((item) => item.type === action.payload);
 
       return { ...state, afterList: newMenu };
@@ -45,16 +46,15 @@ export default function reducer(state, action) {
       });
       // 把原本的List 比對 新增完畢的addAmount的資料，利用雙迴圈比對，如果有兩筆資料相同的ID的話，把新增完畢的資料更改至原本的List裡面，
       // 把afterList 和 list 更改為最新的資料
-      // const updatedList = state.list.map((updated) => {
-      //   const getUpdatedData = addAmount.filter((now) => now.id === updated.id);
-      //   if (getUpdatedData.length >= 1) {
-      //     const { amount } = getUpdatedData[0];
-      //     return { ...updated, amount };
-      //   }
-      //   return updated;
-      // });
-      // return { ...state, afterList: addAmount, list: updatedList };
-      return { ...state, afterList: addAmount };
+      const updatedList = state.list.map((updated) => {
+        const getUpdatedData = addAmount.filter((now) => now.id === updated.id);
+        if (getUpdatedData.length >= 1) {
+          const { amount } = getUpdatedData[0];
+          return { ...updated, amount };
+        }
+        return updated;
+      });
+      return { ...state, afterList: addAmount, list: updatedList };
     case "UNCREASE":
       // 先把刪除完畢的資料拿出來
       const remove = state.afterList.map((item) => {
@@ -67,16 +67,15 @@ export default function reducer(state, action) {
         return item;
       });
       // 把更新完的資料更新到原本的 list 資料上面
-      // const updatedRemove = state.list.map((updated) => {
-      //   const removeUpdatedData = remove.filter((now) => now.id === updated.id);
-      //   if (removeUpdatedData.length >= 1) {
-      //     const { amount } = removeUpdatedData[0];
-      //     return { ...updated, amount };
-      //   }
-      //   return updated;
-      // });
-      // return { ...state, afterList: remove, list: updatedRemove };
-      return { ...state, afterList: remove };
+      const updatedRemove = state.list.map((updated) => {
+        const removeUpdatedData = remove.filter((now) => now.id === updated.id);
+        if (removeUpdatedData.length >= 1) {
+          const { amount } = removeUpdatedData[0];
+          return { ...updated, amount };
+        }
+        return updated;
+      });
+      return { ...state, afterList: remove, list: updatedRemove };
     case "ADD_TO_CART":
       const addToCartData = state.afterList.find(
         (item) => item.id === action.payload
@@ -147,7 +146,9 @@ export default function reducer(state, action) {
       return state;
     case "COUNT_TOTAL_PRICE":
       // 監聽isChecked是true的數據，並且把它拿出來
-      const cartData_true = state.cart.filter(item => item.isChecked === true)
+      const cartData_true = state.cart.filter(
+        (item) => item.isChecked === true
+      );
       // 判斷是否使用者購買的東西的isChecked狀態是否都是true，如果是的話，把所有的產品價格和數量的計算一遍，
       // 如果不是的話只透過上面的cartDate_true把都是true的數據拿出去計算
       const userProduct = state.cart.every((item) => item.isChecked === true);
@@ -161,13 +162,21 @@ export default function reducer(state, action) {
             cartTotal.price += itemPrice;
             cartTotal.amount += amount;
             return cartTotal;
-          },{ price: 0, amount: 0 });
+          },
+          { price: 0, amount: 0 }
+        );
         const { price, amount } = cartData;
         const allProduct = state.cart.length;
-        return {...state,total: price,amount,product: allProduct,cart_all_checkbox:userProduct}
+        return {
+          ...state,
+          total: price,
+          amount,
+          product: allProduct,
+          cart_all_checkbox: userProduct,
+        };
       }
       // 當只有部分的數據是true的話
-      if (!userProduct){
+      if (!userProduct) {
         const new_CartData = cartData_true.reduce(
           (cartTotal, cartItem) => {
             const { price, amount } = cartItem;
@@ -176,10 +185,18 @@ export default function reducer(state, action) {
             cartTotal.price += itemPrice;
             cartTotal.amount += amount;
             return cartTotal;
-          },{ price: 0, amount: 0 });
+          },
+          { price: 0, amount: 0 }
+        );
         const { price, amount } = new_CartData;
         const allProduct = cartData_true.length;
-        return {...state,total: price,amount,product: allProduct,cart_all_checkbox:userProduct}
+        return {
+          ...state,
+          total: price,
+          amount,
+          product: allProduct,
+          cart_all_checkbox: userProduct,
+        };
       }
       return state;
     default:
